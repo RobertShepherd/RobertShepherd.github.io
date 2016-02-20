@@ -256,7 +256,7 @@
 			return arr;
 		}
 
-		function addRainBlockParticle(x, z, halfXSpan, halfZSpan) {
+		function addRainBlockParticle(x, z, halfXSpan, halfZSpan, r, g, b) {
 			particles.push({
 				x: x - halfXSpan,
 				y: nY,
@@ -264,6 +264,9 @@
 				xSpan: 2 * halfXSpan,
 				ySpan: 3,
 				zSpan: 2 * halfZSpan,
+				r:0
+				g:0
+				b:0
 
 				speed: 0.2,
 				update: function() {
@@ -274,7 +277,7 @@
 					for (var x = this.x; x < this.x + this.xSpan; x++) {
 						for (var y = Math.floor(this.y); y < this.y + this.ySpan; y++) {
 							for (var z = this.z; z < this.z + this.zSpan; z++) {
-								setBulbRGB(lightBulbColors, x, y, z, 0.5, 0, 0);
+								setBulbRGB(lightBulbColors, x, y, z, r, g, b);
 							}						
 						}
 					}
